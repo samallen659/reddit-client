@@ -2,18 +2,22 @@ import RedditLogoText from '../../public/reddit-logo-text.svg';
 import RedditLogoIcon from '../../public/reddit-logo-icon.svg';
 import SearchIcon from '../../public/search.svg';
 
-const Navbar = () => {
+const Navbar = ({ submitFunction }) => {
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		submitFunction();
+	};
 	return (
-		<nav data-testid='navbar' className='fixed flex w-screen  items-center justify-center bg-white'>
+		<nav data-testid='navbar' className='fixed flex w-screen  items-center justify-end bg-white lg:justify-center'>
 			<div data-testid='logo-container' className='absolute left-0 top-0 flex items-center gap-2 px-2 py-4'>
 				<RedditLogoIcon width={32} height={32} />
 				<RedditLogoText width={57} height={18} />
 			</div>
-			<form className='w-[672px] py-2'>
+			<form className='ml-[130px] w-[576px] py-2 px-2 lg:w-[672px]' onSubmit={(e) => handleSubmit(e)}>
 				<label htmlFor='default-search' className='sr-only mb-2 text-sm font-medium text-gray-900'>
 					Search
 				</label>
-				<div className='relative right-0 max-w-2xl'>
+				<div className='relative right-0 max-w-xl lg:max-w-2xl'>
 					<div className='pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3'>
 						<svg
 							aria-hidden='true'

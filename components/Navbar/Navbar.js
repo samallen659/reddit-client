@@ -14,16 +14,15 @@ const Navbar = ({ submitFunction }) => {
 				<RedditLogoText width={57} height={18} />
 			</div>
 			<form className='ml-[130px] w-[576px] py-2 px-2 lg:w-[672px]' onSubmit={(e) => handleSubmit(e)}>
-				<label htmlFor='default-search' className='sr-only mb-2 text-sm font-medium text-gray-900'>
+				<label htmlFor='default-search' className='text-gray-900 sr-only mb-2 text-sm font-medium'>
 					Search
 				</label>
 				<div className='relative right-0 max-w-xl lg:max-w-2xl'>
 					<div className='pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3'>
 						<svg
 							aria-hidden='true'
-							className='h-5 w-5 text-gray-500'
+							className='text-gray-500 h-5 w-5'
 							fill='none'
-							// stroke='currentColor'
 							viewBox='0 0 24 24'
 							xmlns='http://www.w3.org/2000/svg'>
 							<path
@@ -36,7 +35,7 @@ const Navbar = ({ submitFunction }) => {
 					<input
 						type='search'
 						id='default-search'
-						className='block w-full rounded-3xl border border-gray-300 bg-gray-50 p-4 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500'
+						className='border-gray-300 bg-gray-50 text-gray-900 block w-full rounded-3xl border p-4 pl-10 text-sm focus:border-blue-500 focus:ring-blue-500'
 						placeholder='Search reddit'
 						required
 					/>

@@ -6,7 +6,6 @@ import { fetchHomePagePosts } from '../features/post/postSlice/postSlice';
 export default function Home() {
     return (
         <div>
-            <h1 className="text-4xl">Hello Tailwind!</h1>
             <div>
                 <PostList />
             </div>

@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import Navbar from '../Navbar/Navbar'
+import Head from 'next/head';
+import Navbar from '../Navbar/Navbar';
 
 const Layout = ({ children }) => {
     return (
@@ -12,6 +12,10 @@ const Layout = ({ children }) => {
                     content="width=device-width, initial-scale=1"
                 />
                 <link rel="icon" href="/favicon.ico" />
+                <link
+                    rel="stylesheet"
+                    href="https://video-react.github.io/assets/video-react.css"
+                />
             </Head>
             <header>
                 <Navbar />
@@ -19,7 +23,7 @@ const Layout = ({ children }) => {
             <main className="pt-16">{children}</main>
             <footer></footer>
         </>
-    )
-}
+    );
+};
 
-export default Layout
+export default Layout;

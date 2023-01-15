@@ -12,7 +12,10 @@ const PostList = () => {
     }, []);
 
     return (
-        <div className="flex flex-col gap-2">
+        <div
+            data-testid="post-container"
+            className="mx-auto flex max-w-[630px] flex-col gap-2"
+        >
             {posts.map((post) => {
                 return <Post key={post.id} {...post} />;
             })}

@@ -1,6 +1,5 @@
 export const getRoundedScoreText = (score) => {
     const numLength = score.toString().length;
-    console.log(numLength);
     let scoreText;
     if (numLength > 3) {
         if (numLength < 7) {

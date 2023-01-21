@@ -18,6 +18,7 @@ const Post = ({
     permalink,
     secure_media,
     thumbnail,
+    summary,
 }) => {
     const handleClick = () => {
         console.log(title);

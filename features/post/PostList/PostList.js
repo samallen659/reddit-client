@@ -29,6 +29,7 @@ const PostList = () => {
                         }
                         secure_media={post.data.secure_media}
                         thumbnail={post.data.thumbnail}
+                        summary={false}
                     />
                 );
             })}

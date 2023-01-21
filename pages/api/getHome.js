@@ -11,29 +11,8 @@ const getHome = async (req, res) => {
             });
             const data = await response.json();
             const { after, before, children, dist } = await data.data;
-            const mappedChildren = await children.map((child) => ({
-                subreddit: child.data.subreddit,
-                selftext: child.data.selftext,
-                author_fullname: child.data.author_fullname,
-                title: child.data.title,
-                downs: child.data.downs,
-                ups: child.data.ups,
-                upvote_ratio: child.data.upvote_ratio,
-                score: child.data.score,
-                created: child.data.created,
-                id: child.data.id,
-                is_video: child.data.is_video,
-                url_overridden_by_dest:
-                    child.data.url_overridden_by_dest === undefined
-                        ? ''
-                        : child.data.url_overridden_by_dest,
-                secure_media: child.data.secure_media,
-                permalink: child.data.permalink,
-                over_18: child.data.over_18,
-                thumbnail: child.data.thumbnail,
-            }));
-            const filteredChildren = mappedChildren.filter(
-                (child) => child.over_18 === false
+            const filteredChildren = children.filter(
+                (child) => child.data.over_18 === false
             );
             res.status(200).json({
                 after,
@@ -51,7 +30,3 @@ const getHome = async (req, res) => {
 };
 
 export default getHome;
-
-/* 
-
-*/

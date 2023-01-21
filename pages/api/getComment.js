@@ -7,14 +7,13 @@ const getComment = async (req, res) => {
             const response = await fetch(fetchUrl);
             const data = await response.json();
             const { after, before, children, dist } = await data[0].data;
-            const { commentAfter, commentBefore, commentChildren } =
-                await mapReplies(data[1].data);
+            console.log(data[1].data);
             res.status(200).json([
-                { after, before, children: postData, dist },
+                { after, before, children, dist },
                 {
-                    after: commentAfter,
-                    before: commentBefore,
-                    children: commentChildren,
+                    after: data[1].data.after,
+                    before: data[1].data.before,
+                    children: data[1].data.children,
                 },
             ]);
             // res.status(200).json(data);

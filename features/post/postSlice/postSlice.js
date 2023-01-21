@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const fetchHomePagePosts = () => {
     return async (dispatch) => {
-        const response = await fetch('api/getHome');
+        const response = await fetch(`api/getHome`);
         const data = await response.json();
         const { after, before, children, dist } = await data;
         dispatch(setChildren({ children: [...children] }));
@@ -14,7 +14,7 @@ export const fetchHomePagePosts = () => {
 
 export const setCommentPagePost = () => {
     return (dispatch, action) => {
-		
+
 	};
 };
 

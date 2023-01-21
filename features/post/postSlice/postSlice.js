@@ -12,10 +12,11 @@ export const fetchHomePagePosts = () => {
     };
 };
 
-export const setCommentPagePost = () => {
-    return (dispatch, action) => {
-
-	};
+export const setCommentPagePost = (children, dist) => {
+    return (dispatch) => {
+        dispatch(setChildren({ children: [...children] }));
+        dispatch(setDist({ dist }));
+    };
 };
 
 const postSlice = createSlice({

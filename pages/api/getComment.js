@@ -7,7 +7,6 @@ const getComment = async (req, res) => {
             const response = await fetch(fetchUrl);
             const data = await response.json();
             const { after, before, children, dist } = await data[0].data;
-            console.log(data[1].data);
             res.status(200).json([
                 { after, before, children, dist },
                 {

@@ -10,7 +10,6 @@ export default function comment() {
 
     useEffect(() => {
         if (router.isReady) {
-            console.log(router.query);
             const { subreddit, user, title } = router.query;
             dispatch(fetchCommentPagePosts(subreddit, user, title));
         }

@@ -8,9 +8,8 @@ export const fetchCommentPagePosts = (subreddit, user, title) => {
             `/api/getComment?subreddit=${subreddit}&user=${user}&title=${title}`
         );
         const data = await response.json();
-        dispatch(setCommentPagePost(data[0]));
+        dispatch(setCommentPagePost(data[0].children, data[0].dist));
         const { after, before, children } = data[1];
-        console.log(data);
         dispatch(setCommentChildren({ children: [...children] }));
         dispatch(setCommentAfter({ after }));
         dispatch(setCommentBefore({ before }));

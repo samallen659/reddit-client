@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCommentPagePosts } from '../../../../../features/comment/commentSlice/commentSlice';
 import Post from '../../../../../features/post/Post/Post';
+import CommentList from '../../../../../features/comment/CommentList/CommentList';
 
 export default function comment() {
     const router = useRouter();
@@ -10,7 +11,6 @@ export default function comment() {
     const comments = useSelector((state) => state.comment.children);
     const post = useSelector((state) => state.post.children[0]);
     const isLoading = useSelector((state) => state.comment.isLoading);
-    console.log(post);
 
     useEffect(() => {
         if (router.isReady) {
@@ -19,17 +19,11 @@ export default function comment() {
         }
     }, [router.isReady]);
     return (
-        <div>
-            <div>
-                <h1 className="text-3xl">Comment</h1>
-                <h2 className="text-2xl">{router.query.subreddit}</h2>
-                <h2 className="text-2xl">{router.query.user}</h2>
-                <h2 className="text-2xl">{router.query.title}</h2>
-            </div>
-            <div>
-                {isLoading ? (
-                    <p>Loading</p>
-                ) : (
+        <div className="mx-auto max-w-[630px] pt-4">
+            {isLoading ? (
+                <p>Loading</p>
+            ) : (
+                <>
                     <Post
                         key={post.data.id}
                         selftext={post.data.selftext}
@@ -43,8 +37,10 @@ export default function comment() {
                         thumbnail={post.data.thumbnail}
                         summary={true}
                     />
-                )}
-            </div>
+                    <div className="py-2"></div>
+                    <CommentList comments={comments} />
+                </>
+            )}
         </div>
     );
 }
